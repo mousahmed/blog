@@ -34,7 +34,8 @@
                         @foreach($users as $index => $user)
                             <tr>
                                 <th scope="row">{{ $index + $users->firstItem()}}</th>
-                                <td><img height="40px" width="40px" style="border-radius: 50%" src="{{Gravatar::src($user->email)}}" alt=""></td>
+                                <td><img height="40px" width="40px" style="border-radius: 50%"
+                                         src="{{Gravatar::src($user->email)}}" alt=""></td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->role}}</td>
                                 <td>{{$user->posts->count()}}</td>
@@ -62,14 +63,20 @@
                                     </form>
                                 </td>
                                 <td>
-                                    @if(!$user->isAdmin())
-                                        <form action="{{route("make.admin", $user->id)}}" method="post">
-                                            @csrf
-                                            @method('put')
+
+                                    <form action="{{route("make.admin", $user->id)}}" method="post">
+                                        @csrf
+                                        @method('put')
+                                        @if(!$user->isAdmin())
                                             <input type="hidden" name="role" value="administrator">
-                                            <button type="submit" class="btn btn-sm btn-success">Make Admin</button>
-                                        </form>
-                                    @endif
+                                            <button type="submit" class="btn btn-sm btn-block btn-success">Make Admin</button>
+                                        @else
+                                            <input type="hidden" name="role" value="writer">
+                                            <button type="submit" class="btn btn-sm btn-block btn-danger">Remove Permissions</button>
+                                        @endif
+                                    </form>
+
+
                                 </td>
                             </tr>
                         @endforeach
