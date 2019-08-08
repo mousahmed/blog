@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
     @yield('styles')
 </head>
 <body>
@@ -117,6 +118,20 @@
 </main>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js')}}"></script>
+<script src="{{asset('js/toastr.min.js')}}"></script>
+<script>
+    @if(Session::has('success'))
+    toastr.success("{{session('success')}}");
+    @endif
+
+    @if(Session::has('deleted'))
+    toastr.success("{{session('deleted')}}");
+    @endif
+
+    @if(Session::has('error'))
+    toastr.warning("{{session('error')}}");
+    @endif
+</script>
 @yield('scripts')
 </body>
 </html>

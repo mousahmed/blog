@@ -7,7 +7,6 @@
 
     <div class="justify-content-center">
 
-        @include('partials.sessions')
         <a href="{{route('posts.create')}}" class="btn btn-success mb-2">Add Post</a>
         <div class="card card-default">
 

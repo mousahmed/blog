@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <title>CMS - Home</title>
+    <title>Blog - Home</title>
 @endsection
 @section('content')
 
@@ -15,7 +15,7 @@
                     </div>
                 @endif
 
-                Welcome to CMS Website
+                Welcome to Blog Admin Panel
             </div>
         </div>
 

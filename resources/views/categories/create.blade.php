@@ -5,9 +5,7 @@
 @endsection
 
 @section('content')
-    @if(Session::has('error'))
-        <div class="alert alert-danger">{{session('error')}}</div>
-    @endif
+
     <div class="justify-content-center">
         <div class="card card-default">
             <div class="card-header">Create new Categories</div>

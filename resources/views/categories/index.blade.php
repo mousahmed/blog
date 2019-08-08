@@ -6,8 +6,6 @@
 
 
     <div class="justify-content-center">
-
-        @include('partials.sessions')
         <a href="{{route('categories.create')}}" class="btn btn-success mb-2">Add Category</a>
         <div class="card card-default">
 
